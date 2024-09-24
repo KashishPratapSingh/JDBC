@@ -6,7 +6,7 @@ public class peopleOfLpu {
         String usrName="root";
         String PassWord="K@#ish21";
         String uName="";
-        String query="Select * from name";
+        String query="Select count(*) from name";
         Connection co=DriverManager.getConnection(url,usrName,PassWord);
         PreparedStatement st=co.prepareStatement(query);
 //        st.setString(1,"Kashish");
@@ -14,7 +14,7 @@ public class peopleOfLpu {
 //        System.out.print(count+" row affected");
         ResultSet rs=st.executeQuery(query);
         while(rs.next()){
-            String username=rs.getString("sname");
+            int username=rs.getInt(1);
             System.out.println(username);
         }
         st.close();
