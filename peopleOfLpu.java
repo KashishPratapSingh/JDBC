@@ -6,15 +6,15 @@ public class peopleOfLpu {
         String usrName="root";
         String PassWord="K@#ish21";
         String uName="";
-        String query="Select count(*) from name";
+        String query="Select * from name";
         Connection co=DriverManager.getConnection(url,usrName,PassWord);
         PreparedStatement st=co.prepareStatement(query);
-//        st.setString(1,"Kashish");
+//        st.setString(1,"Abhinav");
 //        int count=st.executeUpdate();
 //        System.out.print(count+" row affected");
         ResultSet rs=st.executeQuery(query);
         while(rs.next()){
-            int username=rs.getInt(1);
+            String username=rs.getString("sname");
             System.out.println(username);
         }
         st.close();
